@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWAG</title>
+    <style class="global-style">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: PingFang TC, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      html::-webkit-scrollbar {
+        display: none;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font: inherit;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <style>
+      .wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: #000;
+      }
+      .wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .container {
+        position: relative;
+        margin: auto;
+      }
+
+      .styled-landing-content {
+        padding: 20px 32px;
+        position: relative;
+        margin: auto;
+        width: 1024px;
+        max-width: 1024px;
+      }
+      @media (max-width: 1024px) {
+        .styled-landing-content {
+          padding: 20px 32px;
+          width: 100%;
+          max-width: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .styled-landing-content {
+          padding: 16px;
+          width: 100%;
+          max-width: none;
+        }
+      }
+
+      .background-top-gradient {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI2MjIiIHZpZXdCb3g9IjAgMCAxNDQwIDYyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0NDAgNjIyTDAgNjIyTDUuNDM3N2UtMDUgLTMuODE4NDllLTA2TDE0NDAgMC4wMDAxMjIwN0wxNDQwIDYyMloiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xNzEwXzYxMjAxKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzE3MTBfNjEyMDEiIHgxPSIxMDg5LjM4IiB5MT0iLTI1NS41ODUiIHgyPSIxMDMwLjU2IiB5Mj0iMTc1LjY3NiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjQTcwMDY0Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0ZGMEJFNyIgc3RvcC1vcGFjaXR5PSIwIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==);
+        background-repeat: no-repeat;
+        background-position: right top;
+        z-index: -1;
+      }
+
+      .background-bottom-gradient {
+        height: 1000px;
+        background: linear-gradient(
+          0deg,
+          #a70064 8.91%,
+          rgba(255, 11, 231, 0) 99.86%
+        );
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: -2;
+      }
+
+      .header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+      }
+      @media (max-width: 1024px) {
+        .header {
+          margin-bottom: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .header {
+          margin-bottom: 24px;
+        }
+      }
+
+      .swag-logo {
+        width: 148px;
+        height: 65px;
+      }
+      @media (max-width: 1024px) {
+        .swag-logo {
+          width: 69px;
+          height: 30px;
+        }
+      }
+
+      .login-register-button {
+        padding: 8px 12px;
+        border: 1px solid white;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        background: transparent;
+        cursor: pointer;
+      }
+      @media (max-width: 1024px) {
+        .login-register-button {
+          padding: 4px 8px;
+          font-size: 14px;
+        }
+      }
+
+      .main {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-bottom: 48px;
+      }
+      .main .main-watch-now-button {
+        display: none;
+      }
+      @media (max-width: 1024px) {
+        .main {
+          margin-bottom: 24px;
+          gap: 16px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main {
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          width: 328px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .main .main-watch-now-button {
+          display: flex;
+        }
+      }
+
+      .main-title-box {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 248px;
+      }
+      @media (max-width: 1024px) {
+        .main-title-box {
+          max-width: 184px;
+          gap: 6px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-title-box {
+          max-width: 100%;
+          order: 2;
+          gap: 4px;
+        }
+        .main-title-box .main-title-box-watch-now-button {
+          display: none;
+        }
+      }
+
+      .main-title-swag {
+        font-size: 32px;
+        font-weight: 510;
+        color: #00d2be;
+      }
+      @media (max-width: 1024px) {
+        .main-title-swag {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-title-swag {
+          font-weight: 400;
+        }
+      }
+
+      .main-title {
+        font-size: 42px;
+        font-weight: 900;
+        line-height: 110%;
+        margin: 0;
+        padding: 0;
+        -webkit-text-stroke: 0.5px #fff;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+      }
+      @media (max-width: 1024px) {
+        .main-title {
+          font-size: 42px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 40px;
+          -webkit-text-stroke: 0.3px #fff;
+        }
+      }
+
+      .main-subtitle {
+        font-size: 20px;
+        font-weight: 274;
+        line-height: 150%;
+        letter-spacing: -0.528px;
+        margin: 0;
+        padding: 0;
+      }
+      @media (max-width: 1024px) {
+        .main-subtitle {
+          font-size: 14px;
+          letter-spacing: -0.308px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-subtitle {
+          font-size: 13px;
+          letter-spacing: -0.286px;
+        }
+      }
+
+      .main-image {
+        width: auto;
+        height: 322px;
+        border-radius: 20px;
+      }
+      @media (max-width: 1024px) {
+        .main-image {
+          width: auto;
+          height: 218px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-image {
+          width: 100%;
+          min-height: 176px;
+          height: auto;
+          order: 1;
+        }
+      }
+
+      .main-info-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      @media (max-width: 1024px) {
+        .main-info-box {
+          gap: 4px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-box {
+          gap: 8px;
+          order: 3;
+          flex-direction: row;
+        }
+      }
+
+      .main-info-card {
+        display: flex;
+        width: 157px;
+        height: 100px;
+        padding: 13px 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
+        background: #161616;
+      }
+      @media (max-width: 1024px) {
+        .main-info-card {
+          width: 83px;
+          height: 53px;
+          padding: 7px 5px;
+          gap: 4px;
+          border-radius: 5px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-card {
+          padding: 8px;
+          gap: 8px;
+          border-radius: 10px;
+        }
+      }
+
+      .main-info-number {
+        color: #d9d9d9;
+        font-size: 32px;
+        font-weight: 900;
+        -webkit-text-stroke: 2.5px #d9d9d9;
+        text-shadow: 0 0 1px rgba(217, 217, 217, 0.5);
+      }
+      @media (max-width: 1024px) {
+        .main-info-number {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-number {
+          font-size: 16px;
+          -webkit-text-stroke: 0.3px #d9d9d9;
+        }
+      }
+
+      .main-info-text {
+        font-size: 16px;
+        color: #5e5e5e;
+      }
+      @media (max-width: 1024px) {
+        .main-info-text {
+          font-size: 8px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-text {
+          font-size: 10px;
+        }
+      }
+
+      .main-info-cp-streamers-box {
+        display: grid;
+        align-items: center;
+        grid-template-columns: auto auto;
+        margin-top: 12px;
+        gap: 8px;
+      }
+      @media (max-width: 1024px) {
+        .main-info-cp-streamers-box {
+          margin-top: 8px;
+          gap: 4px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-cp-streamers-box {
+          margin-top: 0;
+        }
+      }
+
+      .main-info-cp-list {
+        grid-column: 1/3;
+      }
+      @media (max-width: 768px) {
+        .main-info-cp-list {
+          grid-column: 1/2;
+        }
+      }
+
+      .main-info-cp-list img {
+        width: 48px;
+        height: 48px;
+        margin-left: -24px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background: linear-gradient(#a445b3 4%, #d41872 54%, #ff0066) border-box;
+      }
+      .main-info-cp-list img:first-child {
+        margin-left: 0;
+      }
+      @media (max-width: 1024px) {
+        .main-info-cp-list img {
+          width: 26px;
+          height: 26px;
+          margin-left: -13px;
+        }
+      }
+
+      .main-info-cp-streamers-number {
+        font-size: 24px;
+        font-weight: 1000;
+        background: linear-gradient(
+          136deg,
+          #a445b3 3.79%,
+          #d41872 48.03%,
+          #f06 97.19%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        -webkit-text-stroke: 1.5px transparent;
+      }
+      @media (max-width: 1024px) {
+        .main-info-cp-streamers-number {
+          font-size: 16px;
+        }
+      }
+
+      .main-info-cp-streamers-text {
+        color: #dedede;
+        font-size: 16px;
+      }
+      @media (max-width: 1024px) {
+        .main-info-cp-streamers-text {
+          font-size: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-info-cp-streamers-text {
+          font-size: 12px;
+          grid-column: 1/3;
+        }
+      }
+
+      .watch-now-button {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 56px;
+        padding: 12px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 28px;
+        background: linear-gradient(90deg, #00d2be 0%, #00a8d2 100%);
+        color: #010101;
+        font-size: 20px;
+        font-weight: 590;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 16px rgba(0, 210, 190, 0.3);
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+      .watch-now-button:hover {
+        transform: translateX(-50%) scale(1.02);
+        box-shadow: 0 6px 20px rgba(0, 210, 190, 0.4);
+      }
+      @media (max-width: 1024px) {
+        .watch-now-button {
+          width: 160px;
+          height: 48px;
+          font-size: 18px;
+          bottom: 24px;
+        }
+      }
+      @media (max-width: 768px) {
+        .watch-now-button {
+          width: 140px;
+          height: 44px;
+          font-size: 16px;
+          bottom: 20px;
+        }
+      }
+
+      .dropdown-wrapper {
+        margin-bottom: 48px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (max-width: 1024px) {
+        .dropdown-wrapper {
+          margin-bottom: 24px;
+        }
+      }
+      @media (max-width: 768px) {
+        .dropdown-wrapper > * {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      .content-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+      @media (max-width: 1024px) {
+        .content-section {
+          gap: 34px;
+          margin-bottom: 7px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section {
+          margin-bottom: 24px;
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+
+      .content-section-image-box {
+        position: relative;
+      }
+      @media (max-width: 768px) {
+        .content-section-image-box {
+          order: 1;
+        }
+      }
+
+      .content-section-image {
+        width: 500px;
+        height: 480px;
+      }
+      @media (max-width: 1024px) {
+        .content-section-image {
+          width: 340px;
+          height: 330px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section-image {
+          width: 328px;
+          height: 310px;
+        }
+      }
+
+      .content-section-text-box {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      @media (max-width: 1024px) {
+        .content-section-text-box {
+          gap: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section-text-box {
+          gap: 8px;
+          order: 2;
+        }
+      }
+
+      .content-section-title-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .content-section-title-icon-box {
+        position: relative;
+      }
+      @media (max-width: 1024px) {
+        .content-section-title-icon-box {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section-title-icon-box {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .content-section-title-icon {
+        width: 60px;
+        height: 60px;
+      }
+      @media (max-width: 1024px) {
+        .content-section-title-icon {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section-title-icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .content-section-title {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 110%;
+        -webkit-text-stroke: 0.5px #fff;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+      }
+      @media (max-width: 1024px) {
+        .content-section-title {
+          font-size: 24px;
+        }
+      }
+
+      .content-section-text-list {
+        margin: 0;
+      }
+      @media (max-width: 768px) {
+        .content-section-text-list {
+          list-style: none;
+          padding: 0;
+        }
+      }
+
+      .content-section-text {
+        color: #d9d9d9;
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: 2px;
+      }
+      @media (max-width: 1024px) {
+        .content-section-text {
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 1.154px;
+        }
+      }
+      @media (max-width: 768px) {
+        .content-section-text {
+          text-align: center;
+        }
+      }
+
+      .go-to-top {
+        position: fixed;
+        bottom: 64px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background-color: rgba(172, 172, 172, 0.6);
+        border-radius: 50%;
+        display: none;
+        cursor: pointer;
+        border: none;
+      }
+      @media (max-width: 1024px) {
+        .go-to-top {
+          bottom: 20px;
+        }
+      }
+      @media (max-width: 768px) {
+        .go-to-top {
+          bottom: 16px;
+        }
+      }
+
+      .go-to-top-image {
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+      }
+
+      .blue-plus {
+        color: #00d2be;
+      }
+
+      .footer {
+        margin-top: 48px;
+        padding: 24px 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .footer-link {
+        color: #d9d9d9;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #00d2be;
+      }
+
+      .footer-separator {
+        color: #5e5e5e;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .footer {
+          margin-top: 32px;
+          padding: 16px 0;
+        }
+
+        .footer-links {
+          gap: 12px;
+        }
+
+        .footer-link {
+          font-size: 12px;
+        }
+
+        .footer-separator {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="background-top-gradient"></div>
+      <div class="container">
+        <div class="styled-landing-content">
+          <header class="header">
+            <a href="https://swag.live">
+              <img
+                class="swag-logo"
+                src="https://swag.live/logo/landing?lang=zh-TW"
+                alt="SWAG"
+                width="148"
+                height="65"
+              />
+            </a>
+            <a
+              class="login-register-button"
+              data-element_id="ButtonSignup"
+              href="https://swag.live"
+            >
+              免費註冊
+            </a>
+          </header>
+          <main class="main">
+            <div class="main-title-box">
+              <div class="main-title-swag">
+                SWAG.live
+              </div>
+              <h1 class="main-title">老司機指定第一品牌</h1>
+              <h2 class="main-subtitle">台灣本土原創，創作者自在開播決不設限，最自由的直播平台。</h2>
+            </div>
+            <img
+              class="main-image"
+              src="https://public.swag.live/launchs/landing-main-header.20241126.jpg?size=512x512&format=webp"
+              alt="a sexy woman lying bed"
+              width="483"
+              height="322"
+            />
+            <div class="main-info-box">
+              <div class="main-info-card">
+                <div class="main-info-number">
+                  1K
+                  <span class="blue-plus">+</span>
+                </div>
+                <div class="main-info-text">
+                  部專業影片
+                </div>
+              </div>
+              <div class="main-info-card">
+                <div class="main-info-number">
+                  10K
+                  <span class="blue-plus">+</span>
+                </div>
+                <div class="main-info-text">
+                  間精彩直播
+                </div>
+              </div>
+              <div class="main-info-cp-streamers-box">
+                <div class="main-info-cp-list">
+                  <img
+                    src="https://swag.live/static/_next/static/media/cp1.4b3d36eb.png"
+                    alt="SWAG Creator 0"
+                    width="48"
+                    height="48"
+                  />
+                  <img
+                    src="https://swag.live/static/_next/static/media/cp2.580ddd9a.png"
+                    alt="SWAG Creator 1"
+                    width="48"
+                    height="48"
+                  />
+                  <img
+                    src="https://swag.live/static/_next/static/media/cp3.eea32806.png"
+                    alt="SWAG Creator 2"
+                    width="48"
+                    height="48"
+                  />
+                  <img
+                    src="https://swag.live/static/_next/static/media/cp4.582ac509.png"
+                    alt="SWAG Creator 3"
+                    width="48"
+                    height="48"
+                  />
+                  <img
+                    src="https://swag.live/static/_next/static/media/cp5.876fd395.png"
+                    alt="SWAG Creator 4"
+                    width="48"
+                    height="48"
+                  />
+                </div>
+                <div class="main-info-cp-streamers-number">
+                  1K<span class="blue-plus">+</span>
+                </div>
+                <div class="main-info-cp-streamers-text">位創作者</div>
+              </div>
+            </div>
+          </main>
+          <a
+            class="watch-now-button"
+            data-element_id="LandingPageCta"
+            href="https://swag.live"
+          >
+            免費觀看
+          </a>
+          <div class="dropdown-wrapper">
+            <a class="dropdown" href="#section-area">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xNCA1bC01Ljk5OSA2LjI4NkwyIDUiLz4KPC9zdmc+Cg==" alt="" width="20" height="20" />
+            </a>
+          </div>
+          <section class="content-section" id="section-area">
+            <div class="content-section-image-box">
+              <img
+                class="content-section-image"
+                src="https://public.swag.live/launchs/landing-section-1.20241126.png?size=512x512&format=webp"
+                alt="SWAG homepage and livestream page"
+                width="500"
+                height="480"
+              />
+            </div>
+            <div class="content-section-text-box">
+              <div class="content-section-title-box">
+                <div class="content-section-title-icon-box">
+                  <img
+                    class="content-section-title-icon"
+                    src="https://swag.live/static/_next/static/media/ic-landing-short.d9e3434a.svg"
+                    alt="24h"
+                    width="60"
+                    height="60"
+                  />
+                </div>
+                <h3 class="content-section-title">
+                  百萬用戶親自見證
+                </h3>
+              </div>
+              <ul class="content-section-text-list">
+                <li class="content-section-text">
+                  最值得信賴的直播平台
+                </li>
+                <li class="content-section-text">
+                  專業團隊經營給你最優質的娛樂體驗
+                </li>
+                <li class="content-section-text">
+                  精彩內容每日更新
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="content-section">
+            <div class="content-section-text-box">
+              <div class="content-section-title-box">
+                <div class="content-section-title-icon-box">
+                  <img
+                    class="content-section-title-icon"
+                    src="https://swag.live/static/_next/static/media/ic-landing-live.7ed101d1.svg"
+                    alt="24h"
+                    width="60"
+                    height="60"
+                  />
+                </div>
+                <h3 class="content-section-title">
+                  邊玩邊賺超有感
+                </h3>
+              </div>
+              <ul class="content-section-text-list">
+                <li class="content-section-text">
+                  直播、短影音、私訊互動
+                </li>
+                <li class="content-section-text">
+                  毫無設限自由發揮
+                </li>
+                <li class="content-section-text">
+                  多種賺錢模式一次包辦
+                </li>
+              </ul>
+            </div>
+            <div class="content-section-image-box">
+              <img
+                class="content-section-image"
+                src="https://public.swag.live/launchs/landing-section-2.20241219.png?size=512x512&format=webp"
+                alt="Swag creators grid list"
+                width="500"
+                height="480"
+                loading="lazy"
+              />
+            </div>
+          </section>
+          <section class="content-section">
+            <div class="content-section-image-box">
+              <img
+                class="content-section-image"
+                src="https://public.swag.live/launchs/landing-section-3.20241126.png?size=512x512&format=webp"
+                alt="Livestream pages"
+                width="500"
+                height="480"
+                loading="lazy"
+              />
+            </div>
+            <div class="content-section-text-box">
+              <div class="content-section-title-box">
+                <div class="content-section-title-icon-box">
+                  <img
+                    class="content-section-title-icon"
+                    src="https://swag.live/static/_next/static/media/ic-landing-24h.c187d591.svg"
+                    alt="24h"
+                    width="60"
+                    height="60"
+                  />
+                </div>
+                <h3 class="content-section-title">
+                  24小時專人客服
+                </h3>
+              </div>
+              <ul class="content-section-text-list">
+                <li class="content-section-text">
+                  隨時有人罩你
+                </li>
+                <li class="content-section-text">
+                  解決你的大小問題
+                </li>
+              </ul>
+            </div>
+          </section>
+          <button class="go-to-top" title="Go to top">
+            <img
+              class="go-to-top-image"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xNCA1bC01Ljk5OSA2LjI4NkwyIDUiLz4KPC9zdmc+Cg=="
+              alt="go-to-top"
+              width="40"
+              height="40"
+              style="transform: rotate(180deg)"
+            />
+          </button>
+          <footer class="footer">
+            <div class="footer-links">
+              <a href="/terms" class="footer-link">服務條款</a>
+              <a href="/privacy" class="footer-link">隱私權政策</a>
+              <a href="/2257" class="footer-link">2257 合規聲明</a>
+            </div>
+          </footer>
+        </div>
+        <div class="background-bottom-gradient"></div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const wrapper = document.querySelector(".wrapper");
+        const goToTop = document.querySelector(".go-to-top");
+
+        wrapper.addEventListener("scroll", function () {
+          if (wrapper.scrollTop > 20) {
+            goToTop.style.display = "block";
+          } else {
+            goToTop.style.display = "none";
+          }
+        });
+
+        goToTop.addEventListener("click", function () {
+          wrapper.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html> 
