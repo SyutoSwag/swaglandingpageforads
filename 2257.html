@@ -106,6 +106,28 @@
             color: #5e5e5e;
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .header {
                 padding: 16px;
@@ -127,6 +149,10 @@
             h2 {
                 font-size: 20px;
             }
+
+            .back-to-top {
+                bottom: 140px;
+            }
         }
     </style>
 </head>
@@ -134,7 +160,7 @@
     <header class="header">
         <div class="header-content">
             <a href="https://syutoswag.github.io/swaglandingpageforads/" class="logo">
-                <img src="https://www.swag.live/static/media/logo.3c0b0c1b.svg" alt="SWAG Logo">
+                <img src="https://public.swag.live/launchs/logo.svg" alt="SWAG Logo" height="40">
             </a>
             <a href="https://www.swag.live/signup" class="signup-button">立即註冊</a>
         </div>
@@ -174,5 +200,25 @@
         <span class="footer-separator">|</span>
         <a href="https://syutoswag.github.io/swaglandingpageforads/2257.html">2257 合規聲明</a>
     </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backToTop = document.getElementById("backToTop");
+            
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 20) {
+                    backToTop.classList.add("visible");
+                } else {
+                    backToTop.classList.remove("visible");
+                }
+            });
+
+            backToTop.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
 </body>
 </html> 
