@@ -5,26 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2257 合規聲明 - SWAG</title>
     <style>
-        /* 全局樣式 */
         body {
-            font-family: PingFang TC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-family: PingFang TC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: #000;
             color: #fff;
+            line-height: 1.5;
         }
 
-        /* 頁首樣式 */
         .header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
+            padding: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1024px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,54 +32,61 @@
         }
 
         .signup-button {
-            padding: 8px 16px;
-            border: 1px solid #fff;
+            padding: 8px 12px;
+            border: 1px solid white;
             border-radius: 4px;
-            color: #fff;
+            color: white;
             text-decoration: none;
+            font-size: 16px;
             transition: all 0.3s ease;
         }
 
         .signup-button:hover {
-            background-color: #fff;
-            color: #000;
+            background: white;
+            color: black;
         }
 
-        /* 主要內容樣式 */
         .main-content {
-            max-width: 800px;
+            max-width: 1024px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         .compliance-section {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
+            padding: 32px;
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 30px;
             color: #00d2be;
+            font-size: 32px;
+            margin-bottom: 24px;
         }
 
         h2 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px;
             color: #00d2be;
+            font-size: 24px;
+            margin: 24px 0 16px;
         }
 
         p {
-            line-height: 1.6;
-            margin-bottom: 15px;
+            margin: 16px 0;
+            color: #d9d9d9;
         }
 
-        /* 頁尾樣式 */
+        a {
+            color: #00d2be;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 24px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 40px;
         }
@@ -102,14 +106,18 @@
             color: #5e5e5e;
         }
 
-        /* 響應式設計 */
         @media (max-width: 768px) {
+            .header {
+                padding: 16px;
+            }
+
             .main-content {
-                padding: 0 15px;
+                padding: 0 16px;
+                margin: 24px auto;
             }
 
             .compliance-section {
-                padding: 20px;
+                padding: 24px;
             }
 
             h1 {
@@ -166,7 +174,5 @@
         <span class="footer-separator">|</span>
         <a href="https://syutoswag.github.io/swaglandingpageforads/2257.html">2257 合規聲明</a>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html> 
