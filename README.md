@@ -8,7 +8,7 @@
 - `2257.html` - 2257 合規聲明頁面
 - `privacy.html` - 隱私權政策頁面
 - `terms.html` - 服務條款頁面
-- `landing_page.yaml` - 多語言內容配置文件
+- `verification.html` - 真正投廣用的 landing page
 
 ## 功能特點
 
