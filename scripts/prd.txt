@@ -1,0 +1,36 @@
+產品名稱：SWAG 廣告投放登陸頁 - 易於維護的網站架構優化
+
+目標：
+將現有的多頁靜態網站重構為更易於維護、擴展與協作的結構，提升可讀性、可維護性與多語言內容管理效率。
+
+需求描述：
+1. 目錄結構優化
+   - 將靜態資源（圖片、CSS、JS）分離到對應資料夾（如 /assets、/styles、/scripts）。
+   - 各頁面（如隱私權、條款、2257、驗證）可放置於 /pages 目錄下，主入口為 /index.html。
+   - 多語言內容集中管理（如 locales/ 或 data/landing_page.yaml）。
+2. 元件化與重用
+   - 將重複區塊（如 header、footer、導航）抽離為可重用元件（可用 JS include 或模板引擎）。
+   - 頁面內容與樣式分離，CSS 統一管理於 /styles。
+3. 多語言支持優化
+   - 多語言內容集中於單一 YAML/JSON 檔案，便於維護與擴充。
+   - 提供簡易切換語言的機制。
+4. 自動化部署與測試
+   - 保持 GitHub Actions 自動部署流程。
+   - 增加基本 HTML 檢查或 Lint 步驟，確保每次部署品質。
+5. 維護與擴展性
+   - 新增/修改頁面時，僅需在 /pages 新增對應 HTML，並於多語言檔案補充內容。
+   - 文件（README）需說明如何新增頁面、管理多語言、部署流程。
+
+非功能性需求：
+- 保持響應式設計與現有現代化 UI。
+- 不引入複雜框架，維持輕量級、無需額外依賴。
+- 保持現有 GitHub Pages 部署方式。
+
+參考現有結構：
+- index.html
+- privacy.html
+- terms.html
+- verification.html
+- 2257.html
+- banner.jpg
+- .github/workflows/static.yml 
