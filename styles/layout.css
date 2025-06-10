@@ -640,4 +640,15 @@
   .back-to-top {
     bottom: var(--spacing-xxxxxxxxxxxxl);
   }
+}
+.header-content {
+  display: flex;
+  width: 100%;
+  padding: var(--spacing-xxxl);
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-xxxl);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--size-1440px);
 } 
