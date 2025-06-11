@@ -20,28 +20,7 @@
 
     <main class="main-content">
         <section class="compliance-section">
-            <h1>2257 合規聲明</h1>
-            <div class="compliance-content">
-                <p>最後更新日期：2024年3月</p>
-                
-                <h2>記錄保存</h2>
-                <p>根據美國聯邦法律 18 U.S.C. 2257 的規定，所有在本網站上出現的表演者、模特兒和其他視覺描繪的記錄，均由以下實體保存：</p>
-                <p>記錄保存負責人：<br>
-                SWAG<br>
-                電子郵件：support@swag.live</p>
-
-                <h2>年齡驗證</h2>
-                <p>所有在本網站上出現的表演者、模特兒和其他視覺描繪，在創作時均已年滿18歲或以上。</p>
-
-                <h2>內容來源</h2>
-                <p>本網站上的所有內容均由內容創作者提供，並經過年齡驗證程序。我們要求所有內容創作者提供必要的年齡證明文件。</p>
-
-                <h2>記錄查詢</h2>
-                <p>如需查詢記錄，請通過上述電子郵件地址聯繫記錄保存負責人。請在郵件中註明具體的內容ID或URL。</p>
-
-                <h2>免責聲明</h2>
-                <p>本網站上的所有內容均為用戶生成內容。我們不對第三方內容負責，但我們會盡最大努力確保所有內容符合法律要求。</p>
-            </div>
+            <div id="compliance-content"></div>
         </section>
     </main>
 
@@ -55,5 +34,20 @@
 
     <a href="#" class="back-to-top" id="backToTop">↑</a>
     <script src="../scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script>
+      fetch('../content/2257.yaml')
+        .then(res => res.text())
+        .then(yamlText => {
+          const data = jsyaml.load(yamlText);
+          let html = `<h1>${data.title}</h1>`;
+          html += `<p>最後更新：${data.last_updated}</p>`;
+          data.sections.forEach(section => {
+            html += `<h2>${section.heading}</h2>`;
+            html += section.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
+          });
+          document.getElementById('compliance-content').innerHTML = html;
+        });
+    </script>
 </body>
 </html> 
