@@ -189,5 +189,33 @@ SWAG 用戶透過 SWAG 上傳之內容，純屬 SWAG 用戶個人行為，本公
     </div>
     <a href="#" class="back-to-top" id="backToTop">↑</a>
     <script src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script>
+      fetch('content/index.yaml')
+        .then(res => res.text())
+        .then(yamlText => {
+          const data = jsyaml.load(yamlText);
+          // 主標題、副標題、CTA
+          document.querySelector('.main-title').textContent = data.title;
+          document.querySelector('.main-subtitle').textContent = data.subtitle;
+          document.querySelector('.watch-now-button').textContent = data.cta_text;
+          // 特色數字
+          const infoCards = document.querySelectorAll('.main-info-card');
+          data.features.forEach((f, i) => {
+            if (infoCards[i]) {
+              infoCards[i].querySelector('.main-info-number').innerHTML = f.number;
+              infoCards[i].querySelector('.main-info-text').textContent = f.label;
+            }
+          });
+          // 創作者數字
+          document.querySelector('.main-info-cp-streamers-number').innerHTML = data.creators_number;
+          document.querySelector('.main-info-cp-streamers-text').textContent = data.creators_label;
+          // about 區塊
+          const aboutSection = document.getElementById('section-area');
+          if (aboutSection) {
+            aboutSection.innerHTML = `<div style='max-width:700px;color:#d9d9d9;font-size:20px;line-height:1.8;'><h2>${data.about.heading}</h2>${data.about.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('')}</div>`;
+          }
+        });
+    </script>
   </body>
 </html> 
