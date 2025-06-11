@@ -36,7 +36,16 @@
     <script src="../scripts/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script>
-      fetch('../content/terms.yaml')
+      // 根據瀏覽器語言自動切換中/英文
+      function getLangYaml() {
+        const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (lang.startsWith('zh')) {
+          return '../content/terms.yaml';
+        } else {
+          return '../content/terms-en.yaml';
+        }
+      }
+      fetch(getLangYaml())
         .then(res => res.text())
         .then(yamlText => {
           const data = jsyaml.load(yamlText);
