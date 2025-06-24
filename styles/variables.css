@@ -4,7 +4,7 @@
   --color-white: #fff;
   --color-light-gray: #d9d9d9;
   --color-teal: #00d2be;
-  --color-dark-pink-purple: #a70064;
+  --color-dark-pink-purple: #00d2be;
   --color-transparent-white-border: rgba(255, 255, 255, 0.1);
   --color-semi-transparent-black: rgba(0, 0, 0, 0.5);
   --color-dark-gray: #161616;
@@ -15,8 +15,8 @@
   --color-teal-shadow-light: rgba(0, 210, 190, 0.3);
   --color-teal-shadow-medium: rgba(0, 210, 190, 0.4);
   --color-gradient-purple: #a445b3;
-  --color-gradient-pink: #d41872;
-  --color-gradient-red: #f06;
+  --color-gradient-pink: #00d2be;
+  --color-gradient-red: #00d2be;
   --color-medium-transparent-gray: rgba(172, 172, 172, 0.6);
   --color-white-transparent-shadow: rgba(255, 255, 255, 0.5);
   --color-light-gray-transparent-shadow: rgba(217, 217, 217, 0.5);

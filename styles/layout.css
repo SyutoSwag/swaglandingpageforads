@@ -47,7 +47,7 @@
 }
 .background-bottom-gradient {
   height: var(--size-1000px);
-  background: linear-gradient(0deg, var(--color-dark-pink-purple) 8.91%, rgba(255, 11, 231, 0) 99.86%);
+  background: linear-gradient(0deg, #00d2be 8.91%, rgba(0, 210, 190, 0) 99.86%);
   position: absolute;
   bottom: var(--spacing-none);
   width: 100%;
@@ -309,7 +309,7 @@
   margin-left: calc(-1 * var(--spacing-xxxxxl));
   border-radius: var(--border-radius-round);
   border: 2px solid transparent;
-  background: linear-gradient(var(--color-gradient-purple) 4%, var(--color-gradient-pink) 54%, var(--color-gradient-red)) border-box;
+  background: linear-gradient(#00d2be 4%, #00d2be 54%, #00d2be) border-box;
 }
 .main-info-cp-list img:first-child {
   margin-left: var(--spacing-none);
@@ -324,7 +324,7 @@
 .main-info-cp-streamers-number {
   font-size: var(--font-size-xxl);
   font-weight: 1000;
-  background: linear-gradient(136deg, var(--color-gradient-purple) 3.79%, var(--color-gradient-pink) 48.03%, var(--color-gradient-red) 97.19%);
+  background: linear-gradient(136deg, #00d2be 3.79%, #00d2be 48.03%, #00d2be 97.19%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
