@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>年齡驗證 | SWAG</title>
+  <title>Age Verification – SWAG Adult Content Platform</title>
+  <meta name="description" content="Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform.">
   <link rel="stylesheet" href="../styles/main.css">
   <style>
     body {
@@ -142,6 +143,33 @@
       color: #00D2BE;
     }
   </style>
+  <script>
+  (function() {
+    var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    var isZh = lang.startsWith('zh');
+    var seo = {
+      zh: {
+        title: '年齡驗證｜SWAG',
+        desc: '請確認您已滿 18 歲才能進入 SWAG，台灣最大成人娛樂平台。'
+      },
+      en: {
+        title: "Age Verification – SWAG Adult Content Platform",
+        desc: "Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform."
+      }
+    };
+    var selected = isZh ? seo.zh : seo.en;
+    document.title = selected.title;
+    var metaDesc = document.querySelector('meta[name=\"description\"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', selected.desc);
+    } else {
+      var meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = selected.desc;
+      document.head.appendChild(meta);
+    }
+  })();
+  </script>
 </head>
 <body>
   <div class="modal">

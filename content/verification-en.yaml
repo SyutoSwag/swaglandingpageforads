@@ -1,0 +1,13 @@
+modal_title: "Confirm Your Age"
+modal_subtitle: "SWAG Age Verification"
+modal_section_title: "Enjoy Exclusive Adult Entertainment"
+modal_text: |
+  SWAG is Asia's largest adult content creation platform, designed exclusively for adult users to provide high-quality live streaming interactions and intimate content experiences. Our platform brings together numerous premium content creators, offering diverse adult entertainment content that allows you to interact closely with your favorite creators. The platform has strict content review mechanisms in place to ensure all content complies with legal requirements, creating a safe and high-quality adult entertainment environment for users.
+modal_legal: |
+  <strong>Legal Notice:</strong><br>
+  This service complies with Article 12 of the Civil Code of the Republic of China and related regulations<br>
+  Conforms to iWIN Internet Content Rating and Filtering standards<br>
+  Protection mechanisms established in accordance with Article 46 of the Children and Youth Welfare and Rights Protection Act<br>
+  <span style="color:#ff2d7a;font-weight:bold;">Entry prohibited for persons under 18 years of age</span> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Parental Controls</a>
+btn_enter: "I am 18 or older, enter SWAG"
+btn_leave: "Leave Website"

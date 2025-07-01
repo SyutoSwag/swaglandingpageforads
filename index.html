@@ -4,10 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/variables.css">
-    <title>直播互動｜聊色交友｜SWAG</title>
+    <title>SWAG – Taiwan’s No.1 Adult Content Platform | Exclusive Live Shows & Videos</title>
+    <meta name="description" content="Join SWAG, Taiwan’s leading adult content platform. Enjoy exclusive live shows, premium videos, and interact with top creators 24/7. For adults only.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/components.css">
+    <script>
+    (function() {
+      var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var isZh = lang.startsWith('zh');
+      var seo = {
+        zh: {
+          title: 'SWAG－台灣成人第一品牌｜獨家直播、影片每日更新',
+          desc: '加入 SWAG，台灣最大成人內容平台。獨家直播、優質影片每日更新，與頂尖創作者 24 小時互動。僅限 18 歲以上。'
+        },
+        en: {
+          title: "SWAG – Taiwan's No.1 Adult Content Platform | Exclusive Live Shows & Videos",
+          desc: "Join SWAG, Taiwan's leading adult content platform. Enjoy exclusive live shows, premium videos, and interact with top creators 24/7. For adults only."
+        }
+      };
+      var selected = isZh ? seo.zh : seo.en;
+      document.title = selected.title;
+      var metaDesc = document.querySelector('meta[name=\"description\"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', selected.desc);
+      } else {
+        var meta = document.createElement('meta');
+        meta.name = 'description';
+        meta.content = selected.desc;
+        document.head.appendChild(meta);
+      }
+    })();
+    </script>
   </head>
   <body>
     <div class="wrapper">
