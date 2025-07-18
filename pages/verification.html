@@ -7,6 +7,7 @@
   <title>Age Verification – SWAG Adult Content Platform</title>
   <meta name="description"
     content="Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform.">
+  <link rel="icon" href="https://swag.live/favicon.ico" type="image/x-icon" sizes="16x16">
   <link rel="stylesheet" href="../styles/main.css">
   <style>
     body {
@@ -195,27 +196,59 @@
 
 <body>
   <div class="modal">
-    <div class="modal-title">確認您的年齡</div>
-    <div class="modal-subtitle">SWAG 年齡驗證</div>
-    <div class="modal-section-title">享受專屬成人娛樂</div>
-    <div class="modal-text">
+    <div class="modal-title" id="modal-title">確認您的年齡</div>
+    <div class="modal-subtitle" id="modal-subtitle">SWAG 年齡驗證</div>
+    <div class="modal-section-title" id="modal-section-title">享受專屬成人娛樂</div>
+    <div class="modal-text" id="modal-text">
       SWAG
       是亞洲最大的成人創作平台，專為成年用戶提供高品質的直播互動與私密內容體驗。我們的平台匯集了眾多優質創作者，提供多元化的成人娛樂內容，讓您能與喜愛的創作者零距離互動。平台設有嚴格的內容審查機制，確保所有內容符合法規要求，為用戶營造安全、優質的成人娛樂環境。
     </div>
-    <div class="modal-legal">
+    <div class="modal-legal" id="modal-legal">
       <strong>法律聲明：</strong><br>
       本服務遵循《中華民國民法》第 12 條及相關法規<br>
       符合 iWIN 網路內容防護機構防護層級規範<br>
       依據《兒童及少年福利與權益保障法》第 46 條設置防護機制<br>
-      <span style="color:#00D2BE;font-weight:bold;">未滿 18 歲者禁止進入</span> | <a href="#">使用條款</a> | <a href="#">隱私政策</a> |
-      <a href="#">家長監控</a>
+      <span style="color:#00D2BE;font-weight:bold;">未滿 18 歲者禁止進入</span> | <a href="terms.html">服務條款</a> | <a
+        href="privacy.html">隱私權政策</a> |
+      <a href="2257.html">合規聲明</a>
     </div>
     <div class="modal-btns">
-      <button class="modal-btn" onclick="window.location.replace('https://swag.live/')">我已滿 18 歲，進入 SWAG</button>
-      <button class="modal-btn secondary"
+      <button class="modal-btn" id="btn-enter" onclick="window.location.replace('https://swag.live/')">我已滿 18 歲，進入
+        SWAG</button>
+      <button class="modal-btn secondary" id="btn-leave"
         onclick="window.location.replace('https://youtu.be/4bMOTTJqGgM?si=hwnM3IoqmgRANH7d')">離開網站</button>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 偵測語言
+      const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      const isZh = lang.startsWith('zh');
+      const yamlFile = isZh ? '../content/verification.yaml' : '../content/verification-en.yaml';
+
+      // 載入對應的 YAML 檔案
+      fetch(yamlFile)
+        .then(res => res.text())
+        .then(yamlText => {
+          const data = jsyaml.load(yamlText);
+
+          // 更新內容
+          document.getElementById('modal-title').textContent = data.modal_title;
+          document.getElementById('modal-subtitle').textContent = data.modal_subtitle;
+          document.getElementById('modal-section-title').textContent = data.modal_section_title;
+          document.getElementById('modal-text').textContent = data.modal_text;
+          document.getElementById('modal-legal').innerHTML = data.modal_legal;
+          document.getElementById('btn-enter').textContent = data.btn_enter;
+          document.getElementById('btn-leave').textContent = data.btn_leave;
+        })
+        .catch(error => {
+          console.error('載入內容失敗:', error);
+          // 如果載入失敗，保留預設內容
+        });
+    });
+  </script>
 </body>
 
 </html>

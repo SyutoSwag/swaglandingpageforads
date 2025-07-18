@@ -8,6 +8,6 @@ modal_legal: |
   This service complies with Article 12 of the Civil Code of the Republic of China and related regulations<br>
   Conforms to iWIN Internet Content Rating and Filtering standards<br>
   Protection mechanisms established in accordance with Article 46 of the Children and Youth Welfare and Rights Protection Act<br>
-  <span style="color:#ff2d7a;font-weight:bold;">Entry prohibited for persons under 18 years of age</span> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Parental Controls</a>
+  <span style="color:#ff2d7a;font-weight:bold;">Entry prohibited for persons under 18 years of age</span> | <a href="terms.html">Terms of Use</a> | <a href="privacy.html">Privacy Policy</a> | <a href="2257.html">2257</a>
 btn_enter: 'I am 18 or older, enter SWAG'
 btn_leave: 'Leave Website'
