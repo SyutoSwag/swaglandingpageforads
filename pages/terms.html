@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/variables.css">
-    <title>服務條款 | SWAG</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/layout.css">
-    <link rel="stylesheet" href="../styles/components.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <title>服務條款 | SWAG</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="../styles/components.css">
 </head>
+
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="https://syutoswag.github.io/swaglandingpageforads/" class="logo">
-                <img src="https://swag.live/logo/landing?lang=zh-TW" alt="SWAG Logo" height="40" width="100">
-            </a>
-        </div>
-    </header>
+  <header class="header">
+    <div class="header-content">
+      <a href="https://swag.live" class="logo">
+        <img src="https://swag.live/logo/landing?lang=zh-TW" alt="SWAG Logo" height="40" width="100">
+      </a>
+    </div>
+  </header>
 
-    <main class="main-content">
-        <section class="terms-section">
-            <div id="terms-content"></div>
-        </section>
-    </main>
+  <main class="main-content">
+    <section class="terms-section">
+      <div id="terms-content"></div>
+    </section>
+  </main>
 
-    <footer class="footer">
-        <a href="terms.html">服務條款</a>
-        <span class="footer-separator">|</span>
-        <a href="privacy.html">隱私權政策</a>
-        <span class="footer-separator">|</span>
-        <a href="2257.html">2257 合規聲明</a>
-    </footer>
+  <footer class="footer">
+    <a href="terms.html">服務條款</a>
+    <span class="footer-separator">|</span>
+    <a href="privacy.html">隱私權政策</a>
+    <span class="footer-separator">|</span>
+    <a href="2257.html">2257 合規聲明</a>
+  </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-    <script src="../scripts/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-    <script>
-      // 根據瀏覽器語言自動切換中/英文
-      function getLangYaml() {
-        const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        if (lang.startsWith('zh')) {
-          return '../content/terms.yaml';
-        } else {
-          return '../content/terms-en.yaml';
-        }
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <script src="../scripts/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    // 根據瀏覽器語言自動切換中/英文
+    function getLangYaml() {
+      const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (lang.startsWith('zh')) {
+        return '../content/terms.yaml';
+      } else {
+        return '../content/terms-en.yaml';
       }
-      fetch(getLangYaml())
-        .then(res => res.text())
-        .then(yamlText => {
-          const data = jsyaml.load(yamlText);
-          let html = `<h1>${data.title}</h1>`;
-          html += `<p>最後更新：${data.last_updated}</p>`;
-          data.sections.forEach(section => {
-            html += `<h2>${section.heading}</h2>`;
-            html += section.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
-          });
-          document.getElementById('terms-content').innerHTML = html;
+    }
+    fetch(getLangYaml())
+      .then(res => res.text())
+      .then(yamlText => {
+        const data = jsyaml.load(yamlText);
+        let html = `<h1>${data.title}</h1>`;
+        html += `<p>最後更新：${data.last_updated}</p>`;
+        data.sections.forEach(section => {
+          html += `<h2>${section.heading}</h2>`;
+          html += section.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
         });
-    </script>
+        document.getElementById('terms-content').innerHTML = html;
+      });
+  </script>
 </body>
-</html> 
+
+</html>

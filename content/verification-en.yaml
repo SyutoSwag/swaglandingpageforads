@@ -1,6 +1,6 @@
-modal_title: "Confirm Your Age"
-modal_subtitle: "SWAG Age Verification"
-modal_section_title: "Enjoy Exclusive Content Experience"
+modal_title: 'Confirm Your Age'
+modal_subtitle: 'SWAG Age Verification'
+modal_section_title: 'Enjoy Exclusive Content Experience'
 modal_text: |
   SWAG is the largest creative platform in Asia, offering high-quality live interaction and private content experiences exclusively for adult users. Our platform brings together a wide range of talented creators to provide diverse entertainment content, allowing you to connect closely with your favorite creators. The platform has a strict content review system in place to ensure all materials comply with legal regulations, creating a safe and high-quality environment for our users.
 modal_legal: |
@@ -9,5 +9,5 @@ modal_legal: |
   Conforms to iWIN Internet Content Rating and Filtering standards<br>
   Protection mechanisms established in accordance with Article 46 of the Children and Youth Welfare and Rights Protection Act<br>
   <span style="color:#ff2d7a;font-weight:bold;">Entry prohibited for persons under 18 years of age</span> | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">Parental Controls</a>
-btn_enter: "I am 18 or older, enter SWAG"
-btn_leave: "Leave Website"
+btn_enter: 'I am 18 or older, enter SWAG'
+btn_leave: 'Leave Website'
