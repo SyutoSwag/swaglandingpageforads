@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/components.css">
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
-            <a href="https://syutoswag.github.io/swaglandingpageforads/" class="logo">
+            <a href="https://swag.live" class="logo">
                 <img src="https://swag.live/logo/landing?lang=zh-TW" alt="SWAG Logo" height="40" width="100">
             </a>
         </div>
@@ -36,18 +38,19 @@
     <script src="../scripts/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script>
-      fetch('../content/2257.yaml')
-        .then(res => res.text())
-        .then(yamlText => {
-          const data = jsyaml.load(yamlText);
-          let html = `<h1>${data.title}</h1>`;
-          html += `<p>最後更新：${data.last_updated}</p>`;
-          data.sections.forEach(section => {
-            html += `<h2>${section.heading}</h2>`;
-            html += section.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
-          });
-          document.getElementById('compliance-content').innerHTML = html;
-        });
+        fetch('../content/2257.yaml')
+            .then(res => res.text())
+            .then(yamlText => {
+                const data = jsyaml.load(yamlText);
+                let html = `<h1>${data.title}</h1>`;
+                html += `<p>最後更新：${data.last_updated}</p>`;
+                data.sections.forEach(section => {
+                    html += `<h2>${section.heading}</h2>`;
+                    html += section.content.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
+                });
+                document.getElementById('compliance-content').innerHTML = html;
+            });
     </script>
 </body>
-</html> 
+
+</html>

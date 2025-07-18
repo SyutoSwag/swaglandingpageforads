@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Age Verification – SWAG Adult Content Platform</title>
-  <meta name="description" content="Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform.">
+  <meta name="description"
+    content="Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform.">
   <link rel="stylesheet" href="../styles/main.css">
   <style>
     body {
@@ -18,10 +20,11 @@
       align-items: center;
       justify-content: center;
     }
+
     .modal {
       background: #232228;
       border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
       max-width: 480px;
       width: 90vw;
       padding: 40px 32px 24px 32px;
@@ -30,6 +33,7 @@
       align-items: center;
       position: relative;
     }
+
     .modal-title {
       color: #00D2BE;
       font-size: 2rem;
@@ -37,6 +41,7 @@
       margin-bottom: 8px;
       text-align: center;
     }
+
     .modal-subtitle {
       color: #ffe066;
       font-size: 1.2rem;
@@ -44,6 +49,7 @@
       margin-bottom: 18px;
       text-align: center;
     }
+
     .modal-section-title {
       color: #fff;
       font-size: 1.1rem;
@@ -52,6 +58,7 @@
       margin-bottom: 6px;
       align-self: flex-start;
     }
+
     .modal-text {
       color: #e0e0e0;
       font-size: 1rem;
@@ -59,6 +66,7 @@
       line-height: 1.7;
       text-align: left;
     }
+
     .modal-legal {
       color: #aaa;
       font-size: 0.95rem;
@@ -69,9 +77,11 @@
       padding-top: 10px;
       width: 100%;
     }
+
     .modal-legal strong {
       color: #ffe066;
     }
+
     .modal-options {
       margin: 18px 0 0 0;
       width: 100%;
@@ -80,6 +90,7 @@
       gap: 10px;
       align-items: flex-start;
     }
+
     .modal-options span {
       font-size: 1rem;
       color: #e0e0e0;
@@ -87,6 +98,7 @@
       align-items: center;
       gap: 6px;
     }
+
     .modal-btns {
       display: flex;
       gap: 16px;
@@ -94,6 +106,7 @@
       width: 100%;
       justify-content: center;
     }
+
     .modal-btn {
       background: #00D2BE;
       color: #000000;
@@ -106,16 +119,20 @@
       transition: background 0.2s;
       white-space: nowrap;
     }
+
     .modal-btn.secondary {
       background: #444;
       color: #fff;
     }
+
     .modal-btn:hover {
       background: #e0266a;
     }
+
     .modal-btn.secondary:hover {
       background: #666;
     }
+
     .modal-footer {
       margin-top: 24px;
       width: 100%;
@@ -126,70 +143,79 @@
       font-size: 0.95rem;
       color: #aaa;
     }
+
     .modal-footer a {
       color: #fff;
       text-decoration: none;
       transition: color 0.2s;
     }
+
     .modal-footer a:hover {
       color: #00D2BE;
     }
+
     .modal-legal a {
       color: #fff;
       text-decoration: none;
       transition: color 0.2s;
     }
+
     .modal-legal a:hover {
       color: #00D2BE;
     }
   </style>
   <script>
-  (function() {
-    var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var isZh = lang.startsWith('zh');
-    var seo = {
-      zh: {
-        title: '年齡驗證｜SWAG',
-        desc: '請確認您已滿 18 歲才能進入 SWAG，台灣最大成人娛樂平台。'
-      },
-      en: {
-        title: "Age Verification – SWAG Adult Content Platform",
-        desc: "Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform."
+    (function () {
+      var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var isZh = lang.startsWith('zh');
+      var seo = {
+        zh: {
+          title: '年齡驗證｜SWAG',
+          desc: '請確認您已滿 18 歲才能進入 SWAG，台灣最大成人娛樂平台。'
+        },
+        en: {
+          title: "Age Verification – SWAG Adult Content Platform",
+          desc: "Please confirm you are 18 or older to access SWAG, Taiwan's top adult entertainment platform."
+        }
+      };
+      var selected = isZh ? seo.zh : seo.en;
+      document.title = selected.title;
+      var metaDesc = document.querySelector('meta[name=\"description\"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', selected.desc);
+      } else {
+        var meta = document.createElement('meta');
+        meta.name = 'description';
+        meta.content = selected.desc;
+        document.head.appendChild(meta);
       }
-    };
-    var selected = isZh ? seo.zh : seo.en;
-    document.title = selected.title;
-    var metaDesc = document.querySelector('meta[name=\"description\"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', selected.desc);
-    } else {
-      var meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = selected.desc;
-      document.head.appendChild(meta);
-    }
-  })();
+    })();
   </script>
 </head>
+
 <body>
   <div class="modal">
     <div class="modal-title">確認您的年齡</div>
     <div class="modal-subtitle">SWAG 年齡驗證</div>
     <div class="modal-section-title">享受專屬成人娛樂</div>
     <div class="modal-text">
-      SWAG 是亞洲最大的成人創作平台，專為成年用戶提供高品質的直播互動與私密內容體驗。我們的平台匯集了眾多優質創作者，提供多元化的成人娛樂內容，讓您能與喜愛的創作者零距離互動。平台設有嚴格的內容審查機制，確保所有內容符合法規要求，為用戶營造安全、優質的成人娛樂環境。
+      SWAG
+      是亞洲最大的成人創作平台，專為成年用戶提供高品質的直播互動與私密內容體驗。我們的平台匯集了眾多優質創作者，提供多元化的成人娛樂內容，讓您能與喜愛的創作者零距離互動。平台設有嚴格的內容審查機制，確保所有內容符合法規要求，為用戶營造安全、優質的成人娛樂環境。
     </div>
     <div class="modal-legal">
       <strong>法律聲明：</strong><br>
       本服務遵循《中華民國民法》第 12 條及相關法規<br>
       符合 iWIN 網路內容防護機構防護層級規範<br>
       依據《兒童及少年福利與權益保障法》第 46 條設置防護機制<br>
-      <span style="color:#00D2BE;font-weight:bold;">未滿 18 歲者禁止進入</span> | <a href="#">使用條款</a> | <a href="#">隱私政策</a> | <a href="#">家長監控</a>
+      <span style="color:#00D2BE;font-weight:bold;">未滿 18 歲者禁止進入</span> | <a href="#">使用條款</a> | <a href="#">隱私政策</a> |
+      <a href="#">家長監控</a>
     </div>
     <div class="modal-btns">
       <button class="modal-btn" onclick="window.location.replace('https://swag.live/')">我已滿 18 歲，進入 SWAG</button>
-      <button class="modal-btn secondary" onclick="window.location.replace('https://youtu.be/4bMOTTJqGgM?si=hwnM3IoqmgRANH7d')">離開網站</button>
+      <button class="modal-btn secondary"
+        onclick="window.location.replace('https://youtu.be/4bMOTTJqGgM?si=hwnM3IoqmgRANH7d')">離開網站</button>
     </div>
   </div>
 </body>
-</html> 
+
+</html>
